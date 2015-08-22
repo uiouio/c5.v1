@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{575DADBB-D458-4A9A-A6DD-2A37F073546A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTPPV5.Client.Daemon</RootNamespace>
+    <AssemblyName>CTPPV5.Client.Daemon</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientDaemon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClientDaemon.Designer.cs">
+      <DependentUpon>ClientDaemon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Command\AbstractInstructionCommand.cs" />
+    <Compile Include="Command\AddrAssignCommand.cs" />
+    <Compile Include="Command\CardAssignCommand.cs" />
+    <Compile Include="Command\CardLogoutCommand.cs" />
+    <Compile Include="Command\CheckInQueryCommand.cs" />
+    <Compile Include="Command\SizeAllocCommand.cs" />
+    <Compile Include="Command\TimeSyncCommand.cs" />
+    <Compile Include="Command\UserCancelCommand.cs" />
+    <Compile Include="DaemonModule.cs" />
+    <Compile Include="Instruction\AbstractInstruction.cs" />
+    <Compile Include="Instruction\AddrAssignInstruction.cs" />
+    <Compile Include="Instruction\CardAssignInstruction.cs" />
+    <Compile Include="Instruction\CardLogoutInstruction.cs" />
+    <Compile Include="Instruction\CheckInQueryInstruction.cs" />
+    <Compile Include="Instruction\CheckInReplyInstruction.cs" />
+    <Compile Include="Instruction\ClassroomProfileSyncInstruction.cs" />
+    <Compile Include="Instruction\InstructionSet.cs" />
+    <Compile Include="Instruction\StudentProfileSyncInstruction.cs" />
+    <Compile Include="Instruction\SizeAllocInstruction.cs" />
+    <Compile Include="Instruction\TimeSyncInstruction.cs" />
+    <Compile Include="Instruction\UserCancelInstruction.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependency\Mina.NET\Mina.NET.csproj">
+      <Project>{28abbf94-0584-4254-a8b4-4843e6f4e867}</Project>
+      <Name>Mina.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Infrastructure\CTPPV5.Infrastructure.csproj">
+      <Project>{f0dc9113-8b19-4bee-a608-dc48ca41109f}</Project>
+      <Name>CTPPV5.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Models\CTPPV5.Models.csproj">
+      <Project>{a116f398-99e4-4c1f-82b9-f2a6c78beb77}</Project>
+      <Name>CTPPV5.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Repository\CTPPV5.Repository.csproj">
+      <Project>{095846db-3a98-41f0-b186-cd178010750d}</Project>
+      <Name>CTPPV5.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Rpc\CTPPV5.Rpc.csproj">
+      <Project>{b8e0794b-768d-4327-9ca6-69eea252cc09}</Project>
+      <Name>CTPPV5.Rpc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Security.Impl.Client\CTPPV5.Security.Impl.Client.csproj">
+      <Project>{e816e3a7-f16b-4ef4-b275-b4d876fdaf07}</Project>
+      <Name>CTPPV5.Security.Impl.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

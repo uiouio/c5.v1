@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0489496-505C-4B31-B590-00CC70AC4409}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTPPV5.Client.Winform</RootNamespace>
+    <AssemblyName>CTPPV5.Client.Winform</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.2864.18696, Culture=neutral, PublicKeyToken=d481317c817cec47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\IRemoteApi.cs" />
+    <Compile Include="Api\RemoteApiImpl.cs" />
+    <Compile Include="AutofacPresenterFactory.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Events\ModelEventArgs.cs" />
+    <Compile Include="Model\LoginResult.cs" />
+    <Compile Include="Model\SchoolContext.cs" />
+    <Compile Include="Model\UserContext.cs" />
+    <Compile Include="Presenters\CardMachinePresenter.cs" />
+    <Compile Include="Presenters\GradeClassPresenter.cs" />
+    <Compile Include="Presenters\PermissionMgmPresenter.cs" />
+    <Compile Include="Presenters\SchoolInfoPresenter.cs" />
+    <Compile Include="Presenters\SchoolMgmPresenter.cs" />
+    <Compile Include="Presenters\StudentMgmPresenter.cs" />
+    <Compile Include="Presenters\TeacherMgmPresenter.cs" />
+    <Compile Include="Presenters\UpdatePwdPresenter.cs" />
+    <Compile Include="Presenters\UserMgmPresenter.cs" />
+    <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Presenters\ModuleContainerPresenter.cs" />
+    <Compile Include="Presenters\ModuleViewPresenter.cs" />
+    <Compile Include="Presenters\SchoolNavPresenter.cs" />
+    <Compile Include="LocalApiMockModule.cs" />
+    <Compile Include="Views\Modules\AbstractDocumentModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmCardMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmCardMachine.Designer.cs">
+      <DependentUpon>frmCardMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmGradeClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmGradeClass.Designer.cs">
+      <DependentUpon>frmGradeClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmNavigation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmNavigation.Designer.cs">
+      <DependentUpon>frmNavigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Modules\frmPermissionMgm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmPermissionMgm.Designer.cs">
+      <DependentUpon>frmPermissionMgm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolInfo.Designer.cs">
+      <DependentUpon>frmSchoolInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolMgm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolMgm.Designer.cs">
+      <DependentUpon>frmSchoolMgm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolNav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmSchoolNav.Designer.cs">
+      <DependentUpon>frmSchoolNav.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmStudentMgm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmStudentMgm.Designer.cs">
+      <DependentUpon>frmStudentMgm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmTeacherMgm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmTeacherMgm.Designer.cs">
+      <DependentUpon>frmTeacherMgm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmUpdatePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmUpdatePwd.Designer.cs">
+      <DependentUpon>frmUpdatePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\frmUserMgm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\frmUserMgm.Designer.cs">
+      <DependentUpon>frmUserMgm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\IDocumentModule.cs" />
+    <Compile Include="Views\Modules\IModuleView.cs" />
+    <Compile Include="Views\Modules\IRightDockPanelModule.cs" />
+    <Compile Include="Views\Modules\IToolStripModule.cs" />
+    <Compile Include="Views\Modules\IModule.cs" />
+    <Compile Include="Views\MvpDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinformModule.cs" />
+    <EmbeddedResource Include="Views\Modules\frmCardMachine.resx">
+      <DependentUpon>frmCardMachine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmGradeClass.resx">
+      <DependentUpon>frmGradeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmNavigation.resx">
+      <DependentUpon>frmNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmPermissionMgm.resx">
+      <DependentUpon>frmPermissionMgm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmSchoolInfo.resx">
+      <DependentUpon>frmSchoolInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmSchoolMgm.resx">
+      <DependentUpon>frmSchoolMgm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmSchoolNav.resx">
+      <DependentUpon>frmSchoolNav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmStudentMgm.resx">
+      <DependentUpon>frmStudentMgm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmTeacherMgm.resx">
+      <DependentUpon>frmTeacherMgm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmUpdatePwd.resx">
+      <DependentUpon>frmUpdatePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modules\frmUserMgm.resx">
+      <DependentUpon>frmUserMgm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\01664.ico" />
+    <Content Include="Resources\1.png" />
+    <Content Include="Resources\11.png" />
+    <None Include="Resources\App.ico" />
+    <Content Include="Resources\back.gif" />
+    <Content Include="Resources\background.jpg" />
+    <Content Include="Resources\basedata.ico" />
+    <Content Include="Resources\button_blue_rec.png" />
+    <Content Include="Resources\category.ico" />
+    <Content Include="Resources\category.tiff" />
+    <Content Include="Resources\Close.ico" />
+    <Content Include="Resources\Close1.ico" />
+    <Content Include="Resources\Customer24.png" />
+    <Content Include="Resources\Customer241.png" />
+    <Content Include="Resources\decrypted.ico" />
+    <Content Include="Resources\Delete.gif" />
+    <Content Include="Resources\desktop.ico" />
+    <Content Include="Resources\desktop1.ico" />
+    <Content Include="Resources\disk_silver_time_machine.ico" />
+    <Content Include="Resources\document_folder_blue.ico" />
+    <Content Include="Resources\Download.ico" />
+    <Content Include="Resources\edit.gif" />
+    <Content Include="Resources\exit.gif" />
+    <Content Include="Resources\exitsystem.png" />
+    <Content Include="Resources\export.ico" />
+    <Content Include="Resources\folder_blue.png" />
+    <Content Include="Resources\forward.gif" />
+    <Content Include="Resources\frame.ico" />
+    <Content Include="Resources\help.ico" />
+    <Content Include="Resources\help1.ico" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\icontexto_user_web20_favorites.ico" />
+    <Content Include="Resources\info.ico" />
+    <Content Include="Resources\keys.ico" />
+    <Content Include="Resources\keys1.ico" />
+    <Content Include="Resources\key_blue.ico" />
+    <Content Include="Resources\msn.png" />
+    <Content Include="Resources\New.ico" />
+    <Content Include="Resources\online_girl.ico" />
+    <Content Include="Resources\personal.ico" />
+    <Content Include="Resources\personal_1.ico" />
+    <Content Include="Resources\preferences_system.ico" />
+    <Content Include="Resources\Refresh.png" />
+    <Content Include="Resources\relogin.ico" />
+    <Content Include="Resources\relogin.png" />
+    <Content Include="Resources\relogin1.ico" />
+    <Content Include="Resources\statics.ico" />
+    <Content Include="Resources\system_config_boot.ico" />
+    <Content Include="Resources\teacher.png" />
+    <Content Include="Resources\teacher_icon.ico" />
+    <Content Include="Resources\time_machine.ico" />
+    <Content Include="Resources\Upload.ico" />
+    <Content Include="Resources\user.ico" />
+    <Content Include="Resources\User.png" />
+    <Content Include="Resources\users.ico" />
+    <Content Include="Resources\Users_Group.ico" />
+    <Content Include="Resources\user_home.png" />
+    <Content Include="Resources\user_male_white_blue_grey.ico" />
+    <Content Include="Resources\wpccpl.dll_I0001_0409.ico" />
+    <Content Include="Resources\暂无图片.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependency\WinFormsMvp\WinFormsMvp.csproj">
+      <Project>{f211df11-2b89-4ffc-a9b8-4ba9cdf41a9f}</Project>
+      <Name>WinFormsMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Infrastructure\CTPPV5.Infrastructure.csproj">
+      <Project>{f0dc9113-8b19-4bee-a608-dc48ca41109f}</Project>
+      <Name>CTPPV5.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Models\CTPPV5.Models.csproj">
+      <Project>{a116f398-99e4-4c1f-82b9-f2a6c78beb77}</Project>
+      <Name>CTPPV5.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

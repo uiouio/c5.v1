@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0DC9113-8B19-4BEE-A608-DC48CA41109F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTPPV5.Infrastructure</RootNamespace>
+    <AssemblyName>CTPPV5.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy2">
+      <HintPath>..\..\packages\Autofac.Extras.DynamicProxy2.3.0.5\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Metrics">
+      <HintPath>..\..\packages\Metrics.NET.0.2.14\lib\net45\Metrics.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Json.NET\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\LocalCache.cs" />
+    <Compile Include="Collections\LRUMap.cs" />
+    <Compile Include="Collections\ProducerConsumer\AbstractProducerConsumer.cs" />
+    <Compile Include="Collections\ProducerConsumer\SequentialNode.cs" />
+    <Compile Include="Collections\ProducerConsumer\ConsumingItem.cs" />
+    <Compile Include="Collections\ProducerConsumer\ChunkedProducerConsumer.cs" />
+    <Compile Include="Collections\ProducerConsumer\ConsumeEventArgs.cs" />
+    <Compile Include="Collections\ProducerConsumer\IBlockingQueue.cs" />
+    <Compile Include="Collections\ProducerConsumer\IChunkedBlockingQueue.cs" />
+    <Compile Include="Collections\ProducerConsumer\IIndexedBlockingQueue.cs" />
+    <Compile Include="Collections\ProducerConsumer\ChunkedNotifyQueue.cs" />
+    <Compile Include="Collections\ProducerConsumer\IConsumingItem.cs" />
+    <Compile Include="Collections\ProducerConsumer\TimeoutNotifyProducerConsumer.cs" />
+    <Compile Include="Collections\ProducerConsumer\TimeoutNotifyQueue.cs" />
+    <Compile Include="Collections\RedBlack.cs" />
+    <Compile Include="Collections\RedBlackEnumerator.cs" />
+    <Compile Include="Collections\RedBlackException.cs" />
+    <Compile Include="Collections\RedBlackNode.cs" />
+    <Compile Include="Collections\ProducerConsumer\SortedAndIndexedBlockingQueue.cs" />
+    <Compile Include="Consts\ExceptionMessage.cs" />
+    <Compile Include="Consts\KeyName.cs" />
+    <Compile Include="Consts\LogTitle.cs" />
+    <Compile Include="Consts\SqlName.cs" />
+    <Compile Include="Crosscutting\AttributeLookup.cs" />
+    <Compile Include="Crosscutting\InterceptAttribute.cs" />
+    <Compile Include="Extension\ArrayExtension.cs" />
+    <Compile Include="Extension\CollectionExtension.cs" />
+    <Compile Include="Extension\DateTimeExtension.cs" />
+    <Compile Include="Extension\IoBufferExtension.cs" />
+    <Compile Include="Extension\ObjectExtension.cs" />
+    <Compile Include="Extension\StringExtension.cs" />
+    <Compile Include="Extension\ZipExtension.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
+    <Compile Include="Collections\ProducerConsumer\IProducerConsumer.cs" />
+    <Compile Include="Log\ILog.cs" />
+    <Compile Include="Log\Log4NetAdapter.cs" />
+    <Compile Include="Module\LogModule.cs" />
+    <Compile Include="Module\MetricsModule.cs" />
+    <Compile Include="Module\SecurityModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\IIdentifierProvider.cs" />
+    <Compile Include="Security\RSACrypto.cs" />
+    <Compile Include="Util\AppConfig.cs" />
+    <Compile Include="Util\Crc32.cs" />
+    <Compile Include="Security\ICryptoKeyProvider.cs" />
+    <Compile Include="ObjectHost.cs" />
+    <Compile Include="Util\DoubleCheck.cs" />
+    <Compile Include="Util\NetworkInfoHelper.cs" />
+    <Compile Include="Util\TransparentObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependency\Mina.NET\Mina.NET.csproj">
+      <Project>{28abbf94-0584-4254-a8b4-4843e6f4e867}</Project>
+      <Name>Mina.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

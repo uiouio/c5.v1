@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8E0794B-768D-4327-9CA6-69EEA252CC09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTPPV5.Rpc</RootNamespace>
+    <AssemblyName>CTPPV5.Rpc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Metrics, Version=0.2.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Metrics.NET.0.2.14\lib\net45\Metrics.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Json.NET\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Net\AbstractFilter.cs" />
+    <Compile Include="Net\Client\AsyncSessionFactoryImpl.cs" />
+    <Compile Include="Net\Client\AsyncSessionImpl.cs" />
+    <Compile Include="Net\Client\ClientInitializer.cs" />
+    <Compile Include="Net\Client\ClientModule.cs" />
+    <Compile Include="Net\Client\Command\Authentication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\Client\Command\ListConnectors.cs" />
+    <Compile Include="Net\Client\Command\Register.cs" />
+    <Compile Include="Net\Client\ConnectionConfig.cs" />
+    <Compile Include="Net\Client\EndPointSelectorByHashMod.cs" />
+    <Compile Include="Net\Client\Filter\AutoAuthenticationFilter.cs" />
+    <Compile Include="Net\Client\Filter\KeepAlive\KeepAliveMessageFactory.cs" />
+    <Compile Include="Net\Client\IAsyncSession.cs" />
+    <Compile Include="Net\Client\IAsyncSessionFactory.cs" />
+    <Compile Include="Net\Client\IRemoteEndPointSelector.cs" />
+    <Compile Include="Net\Client\SessionOpenException.cs" />
+    <Compile Include="Net\Codec\DuplexMessageDecoder.cs" />
+    <Compile Include="Net\Codec\DuplexMessageEncoder.cs" />
+    <Compile Include="Net\Codec\MessageCodecFactory.cs" />
+    <Compile Include="Net\Codec\AbstractMessageDecoder.cs" />
+    <Compile Include="Net\Codec\AbstractMessageEncoder.cs" />
+    <Compile Include="Net\Command\AbstractAsyncCommand.cs" />
+    <Compile Include="Net\Command\AbstractBlockCommand.cs" />
+    <Compile Include="Net\Command\AbstractCommandExecutor.cs" />
+    <Compile Include="Net\Command\CommandEventArgs.cs" />
+    <Compile Include="Net\Command\CommandHandler.cs" />
+    <Compile Include="Net\Command\IAsyncCommand.cs" />
+    <Compile Include="Net\Command\ICommand.cs" />
+    <Compile Include="Net\Command\ICommandExecutor.cs" />
+    <Compile Include="Net\Command\OnlyRunOnceCommandException.cs" />
+    <Compile Include="ExceptionCounterFilter.cs" />
+    <Compile Include="Net\Message\DuplexMessage.cs" />
+    <Compile Include="Net\Message\CommandCode.cs" />
+    <Compile Include="Net\Message\CommandCodeExtension.cs" />
+    <Compile Include="Net\Message\DuplexMessageReaderImplV1.cs" />
+    <Compile Include="Net\Message\MessageType.cs" />
+    <Compile Include="Net\Message\DuplexMessageWriterImplV1.cs" />
+    <Compile Include="Net\Message\SecureAttribute.cs" />
+    <Compile Include="ErrorCode.cs" />
+    <Compile Include="Net\Message\Filter\Crc32Filter.cs" />
+    <Compile Include="Net\Message\Filter\Empty.cs" />
+    <Compile Include="Net\Message\Filter\ModeEnums.cs" />
+    <Compile Include="Net\Message\Filter\FilterResult.cs" />
+    <Compile Include="Net\Message\Filter\GZipFilter.cs" />
+    <Compile Include="Net\Message\Filter\IMessageFilter.cs" />
+    <Compile Include="Net\Message\Filter\MessageFilterFactory.cs" />
+    <Compile Include="Net\Message\Filter\RSACryptoFilter.cs" />
+    <Compile Include="Net\Message\IMessage.cs" />
+    <Compile Include="Net\Message\IMessageDataContainer.cs" />
+    <Compile Include="Net\Message\IMessageReader.cs" />
+    <Compile Include="Net\Message\IMessageWriter.cs" />
+    <Compile Include="Net\Message\Filter\MessageFilterType.cs" />
+    <Compile Include="Net\Message\MessageHeader.cs" />
+    <Compile Include="Net\Message\MessageState.cs" />
+    <Compile Include="Net\Message\MessageVersion.cs" />
+    <Compile Include="Net\Message\Serializer\BasicType.cs" />
+    <Compile Include="Net\Message\Serializer\Protobuf.cs" />
+    <Compile Include="Net\Message\StackMessageDataContaner.cs" />
+    <Compile Include="Net\Message\Serializer\Empty.cs" />
+    <Compile Include="Net\Message\Serializer\ISerializer.cs" />
+    <Compile Include="Net\Message\Serializer\Json.cs" />
+    <Compile Include="Net\Message\Serializer\SerializeMode.cs" />
+    <Compile Include="Net\RpcNetModule.cs" />
+    <Compile Include="Net\Server\Command\BadRequest.cs" />
+    <Compile Include="Net\Server\Command\Heartbeat.cs" />
+    <Compile Include="Net\Server\Filter\SessionAbnormalFilter.cs" />
+    <Compile Include="Net\Server\Filter\SessionMetricsFilter.cs" />
+    <Compile Include="Net\Server\ServerBootstrap.cs" />
+    <Compile Include="Net\Server\ServerConfig.cs" />
+    <Compile Include="Net\Server\ServerModule.cs" />
+    <Compile Include="Net\Server\ServerUtil.cs" />
+    <Compile Include="Net\Server\SessionIdentifierManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serial\IInstruction.cs" />
+    <Compile Include="Serial\InstructionState.cs" />
+    <Compile Include="Serial\ISerialPacketDecoder.cs" />
+    <Compile Include="Serial\PacketCodecFactory.cs" />
+    <Compile Include="Serial\PacketDecoder.cs" />
+    <Compile Include="Serial\PacketEncoder.cs" />
+    <Compile Include="Serial\PacketHandler.cs" />
+    <Compile Include="Serial\Packet\AbstractPacket.cs" />
+    <Compile Include="Serial\Packet\AddrAssignCtlPacket.cs" />
+    <Compile Include="Serial\Packet\AddrAssignDataPacket.cs" />
+    <Compile Include="Serial\Packet\CardAssignCtlPacket.cs" />
+    <Compile Include="Serial\Packet\CardAssignDataPacket.cs" />
+    <Compile Include="Serial\Packet\CheckInQueryCtlPacket.cs" />
+    <Compile Include="Serial\Packet\CheckInQueryDataPacket.cs" />
+    <Compile Include="Serial\Packet\CheckInReplyCtlPacket.cs" />
+    <Compile Include="Serial\Packet\ClassSyncCtlPacket.cs" />
+    <Compile Include="Serial\Packet\ClassSyncDataPacket.cs" />
+    <Compile Include="Serial\Packet\CtlPacket.cs" />
+    <Compile Include="Serial\Packet\DataPacket.cs" />
+    <Compile Include="Serial\Packet\ISerialPacket.cs" />
+    <Compile Include="Serial\Packet\UserCancelCtlPacket.cs" />
+    <Compile Include="Serial\Packet\UserCancelDataPacket.cs" />
+    <Compile Include="Serial\Packet\StudentProfileSyncCtlPacket.cs" />
+    <Compile Include="Serial\Packet\StudentProfileSyncDataPacket.cs" />
+    <Compile Include="Serial\Packet\SizeAllocCtlPacket.cs" />
+    <Compile Include="Serial\Packet\SizeAllocDataPacket.cs" />
+    <Compile Include="Serial\Packet\TimeSyncCtlPacket.cs" />
+    <Compile Include="Serial\Packet\TimeSyncDataPacket.cs" />
+    <Compile Include="Serial\RpcSerialModule.cs" />
+    <Compile Include="Serial\SerialPortConfig.cs" />
+    <Compile Include="Serial\SerialSessionOpenException.cs" />
+    <Compile Include="Serial\SerialShell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependency\Mina.NET\Mina.NET.csproj">
+      <Project>{28abbf94-0584-4254-a8b4-4843e6f4e867}</Project>
+      <Name>Mina.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Infrastructure\CTPPV5.Infrastructure.csproj">
+      <Project>{f0dc9113-8b19-4bee-a608-dc48ca41109f}</Project>
+      <Name>CTPPV5.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTPPV5.Models\CTPPV5.Models.csproj">
+      <Project>{a116f398-99e4-4c1f-82b9-f2a6c78beb77}</Project>
+      <Name>CTPPV5.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

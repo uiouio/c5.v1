@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{941591AD-7C02-4671-806F-E15241540E05}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTPPV5.Rpc.Server.Sample</RootNamespace>
+    <AssemblyName>CTPPV5.Rpc.Server.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleCommandExecutor.cs" />
+    <Compile Include="SampleModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependency\Mina.NET\Mina.NET.csproj">
+      <Project>{28abbf94-0584-4254-a8b4-4843e6f4e867}</Project>
+      <Name>Mina.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.CommandServer\CTPPV5.CommandServer.csproj">
+      <Project>{fb3df65b-a0b7-47f1-82b8-d1440983128f}</Project>
+      <Name>CTPPV5.CommandServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.Infrastructure\CTPPV5.Infrastructure.csproj">
+      <Project>{f0dc9113-8b19-4bee-a608-dc48ca41109f}</Project>
+      <Name>CTPPV5.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.Models\CTPPV5.Models.csproj">
+      <Project>{a116f398-99e4-4c1f-82b9-f2a6c78beb77}</Project>
+      <Name>CTPPV5.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.Repository\CTPPV5.Repository.csproj">
+      <Project>{095846db-3a98-41f0-b186-cd178010750d}</Project>
+      <Name>CTPPV5.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.Rpc\CTPPV5.Rpc.csproj">
+      <Project>{b8e0794b-768d-4327-9ca6-69eea252cc09}</Project>
+      <Name>CTPPV5.Rpc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sources\CTPPV5.Security.Impl.Server\CTPPV5.Security.Impl.Server.csproj">
+      <Project>{fcd4f72f-dcff-4809-b3bd-6fd206a083c3}</Project>
+      <Name>CTPPV5.Security.Impl.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Test\CTPPV5.TestLib\CTPPV5.TestLib.csproj">
+      <Project>{be913104-1cb5-43c1-befa-0be7fe8c91c3}</Project>
+      <Name>CTPPV5.TestLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

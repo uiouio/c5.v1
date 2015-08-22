@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using CTPPV5.Infrastructure.Security;
+
+namespace CTPPV5.TestLib
+{
+    public class TestRsaKeyProvider : ICryptoKeyProvider
+    {
+        public byte[] GetPrivateKey(string keyId)
+        {
+            return Convert.FromBase64String("BwIAAACkAABSU0EyAAgAAAEAAQCfrD0vCyZU2FlNSOs9UT3RSzHvJvu0X4bS842ruA2IPXqsKfQauaytGjChTMVajEFhCLJjw6Pim6nIliGPOxjg/wiOMwB+CztIZbDlzZV+GdtAFQ/nXY6diZZD5DbLxS3BhTH9BlalxrKQdpyr9bqMGYEycj2AJ0VvMyiAMdeJZc3glA+0PQli2cb23n2f+27fe82N25RNWVzaTfhfUzbnT7jjCH3NlOtvjrq0E1rZfRzo0NXCEKN2aZaFx9LesEfSQ/55k+7PDpg5yqd6Hw98WTlpDFCdYCYcXcBNJuJ/SarFtj4FPUU4uxw6AGT1MdOpoZLKy6k40PGXU2+XhC/LGXR5xm5ik0OxTnp9Q9qk0y+CMRIhOmwXHVW33WLqxnmEUTcgKdVUyvF9/Fd0XwzOb/Rtx4KOf208c2YEoZPPN9O96BubwtqVDAis08ugVJ+nXreTHmExgOwSyfGvyMEvDPYahgGLLugwI6wlscHB72lZ0V1Z5o0yTNioZfoexvZ3/eyOmkXhI8IE+JriHRQ4RIod9cv9ocLtb5wB6I2O4V4z6B9ZHdhc3h2/xdlpCyPvCoqTeNzdavaZ1jklSafPy39EnGakmGk/g09ffmH9PnRn2mxNY9/WmqeegHotXIvyWljN3j2MP7xk/VyjvRs07NxLbErWNNG6cmRUWzbI0qmeE77xWXfn1DFPi8ycChfm1eREX5Hu2/lkgbyGXQ9FC7prGBRj19KQFGvSZL2lKz2Qm+wYPxnPRUSSjzbX57shh3vlAzFnD3T3Z8TN45fdHEm9U813PSCh11Vib1xsA8T2yhJAMnrVMGaRF29iazylKqoz/2yz06MGB77pjHMjpWY3OPEOK++fACvDZFlXfinACAlmCs169U2+UVv2qoKssnKmK5ZaIZiNFWpFVpsSuGu+ZHWuiFHkconbOuzA/+W715Ux3XVQ3Jds2IX+zmeEbSjlMa09wi140IomcFgPBKe5oZPYsvjensnb2p7apa8YTtd7j5x7/KovsGarRRWU22+cAMQbBdIFLEX/w/FjFcHPLEpe4FjtW5Y/2QwQ+wTb9LnzLF6Q8nXqbO3Z/OPoG8FAI2VKNKGSCW3aaOnogxbEkVIJ+luYYHVdncXyZyEpT4a6ikajJu2vJewyVil+PERPrzalCjWhtlv35ai3ySrM0RsbQZW9ieXZgpVIBdHUvjkHGX+7kq8Px9aAt+LH3jF9X7/E+NDvbOQuLRtIyzr9qfwhcooPoU1SMifAhFiwxP4x2aqL69VixKSYNv8O2B3kdzEBmHFyeqfABsG7Lrcwd6UoSHF4YlDEYgiu6s3LZd6KuqgS+k/XdF5YAuGjoZc6vEZhtije5JeMTF+c/EED22wUg0JpsnaXpZEWF9uvV5n0AqpIiT1ICyZ4SPAF0MbGE2XBk9W5AeE6UQcYhgtmQx6yIbdaFukQcxQS0T+a0EO9rzuDY4U4e5l8NTkBaikOSwJPsv+ot2MxyU/R/VakOrBSef+T8Yy39wVQdu06e+/jGqLnRW8c4/beIqo=");
+        }
+
+        public byte[] GetPublicKey(string keyId)
+        {
+            return Convert.FromBase64String("BgIAAACkAABSU0ExAAgAAAEAAQCfrD0vCyZU2FlNSOs9UT3RSzHvJvu0X4bS842ruA2IPXqsKfQauaytGjChTMVajEFhCLJjw6Pim6nIliGPOxjg/wiOMwB+CztIZbDlzZV+GdtAFQ/nXY6diZZD5DbLxS3BhTH9BlalxrKQdpyr9bqMGYEycj2AJ0VvMyiAMdeJZc3glA+0PQli2cb23n2f+27fe82N25RNWVzaTfhfUzbnT7jjCH3NlOtvjrq0E1rZfRzo0NXCEKN2aZaFx9LesEfSQ/55k+7PDpg5yqd6Hw98WTlpDFCdYCYcXcBNJuJ/SarFtj4FPUU4uxw6AGT1MdOpoZLKy6k40PGXU2+XhC/L");
+        }
+    }
+}
